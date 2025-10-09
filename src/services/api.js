@@ -1,6 +1,7 @@
 // services/api.js
 const API_BASE_URL = import.meta.env.VITE_API_URL || "https://freelancer-backend-65cp.onrender.com";
 
+// ---------- Helper: read cookie ----------
 const getCookie = (name) => {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
@@ -8,11 +9,20 @@ const getCookie = (name) => {
   return null;
 };
 
+// ---------- Core fetch with JWT + CSRF ----------
 export async function fetchWithSession(endpoint, options = {}) {
   const url = `${API_BASE_URL}${endpoint}`;
 
-  // Always use csrf_access_token
-  const csrfToken = getCookie("csrf_access_token");
+  // Always ensure CSRF token
+  let csrfToken = getCookie("csrf_access_token");
+  if (!csrfToken) {
+    const csrfRes = await fetch(`${API_BASE_URL}/user/csrf-token`, {
+      method: "GET",
+      credentials: "include",
+    });
+    const csrfData = await csrfRes.json();
+    csrfToken = csrfData.csrf_token;
+  }
 
   const headers = {
     "Content-Type": "application/json",
@@ -36,15 +46,18 @@ export async function fetchWithSession(endpoint, options = {}) {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-TOKEN": csrfToken
-      }
+        "X-CSRF-TOKEN": csrfToken,
+      },
     });
 
     if (!refreshRes.ok) {
       throw new Error("Session expired. Please login again.");
     }
 
-    options._retry = true; // prevent infinite loop
+    const newCsrf = (await refreshRes.json())?.csrf_token;
+    if (newCsrf) sessionStorage.setItem("csrf_token", newCsrf);
+
+    options._retry = true;
     return fetchWithSession(endpoint, options);
   }
 
@@ -59,30 +72,24 @@ export async function fetchWithSession(endpoint, options = {}) {
     : {};
 }
 
-
 // ---------- API Methods ----------
 const api = {
   // ---------- Auth ----------
   login: (credentials) =>
     fetchWithSession("/user/login", { method: "POST", body: credentials }),
-
   logout: () => fetchWithSession("/user/logout", { method: "POST" }),
   signup: (userData) => fetchWithSession("/user/signup", { method: "POST", body: userData }),
   getSession: () => fetchWithSession("/user/session", { method: "GET" }),
   forgotPassword: (email) =>
     fetchWithSession("/user/forgot-password", { method: "POST", body: { email } }),
   resetPassword: (email, otp, new_password) =>
-    fetchWithSession("/user/reset-password", {
-      method: "POST",
-      body: { email, otp, new_password },
-    }),
+    fetchWithSession("/user/reset-password", { method: "POST", body: { email, otp, new_password } }),
   getCsrfToken: () => fetchWithSession("/user/csrf-token", { method: "GET" }),
 
   // ---------- Admin ----------
   createProject: (data) =>
     fetchWithSession("/admin/projects", { method: "POST", body: data }),
   getAllProjects: () => fetchWithSession("/admin/projects", { method: "GET" }),
-  listUsers: () => fetchWithSession("/user/users", { method: "GET" }),
   updateProject: (projectId, data) =>
     fetchWithSession(`/admin/projects/${projectId}`, { method: "PUT", body: data }),
   deleteProject: (projectId) =>
@@ -92,14 +99,14 @@ const api = {
   assignManager: (manager_username, job_ids) =>
     fetchWithSession("/admin/assign-manager", { method: "POST", body: { manager_username, job_ids } }),
   getAdminStats: () => fetchWithSession("/admin/stats", { method: "GET" }),
+  listUsers: () => fetchWithSession("/user/users", { method: "GET" }),
 
   // ---------- Manager ----------
   getManagerDashboard: () => fetchWithSession("/manager/dashboard", { method: "GET" }),
   getManagerProjects: () => fetchWithSession("/manager/projects", { method: "GET" }),
   getManagerTasks: (jobId) =>
     fetchWithSession("/manager/tasks", { method: "POST", body: { job_id: jobId } }),
-  createTask: (taskData) =>
-    fetchWithSession("/manager/assign_tasks", { method: "POST", body: taskData }),
+  createTask: (taskData) => fetchWithSession("/manager/assign_tasks", { method: "POST", body: taskData }),
   updateTaskStatusManager: (task_id, status) =>
     fetchWithSession("/manager/tasks/status", { method: "PATCH", body: { task_id, status } }),
   getManagerBatches: () => fetchWithSession("/manager/batches", { method: "GET" }),
