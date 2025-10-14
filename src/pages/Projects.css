@@ -1,0 +1,154 @@
+.main-content {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Projects Table */
+.project-table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border: 2px solid #444; /* outer border */
+}
+
+.project-table th,
+.project-table td {
+  border: 1px solid #888;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.project-table th {
+  background: #f4f4f4;
+  font-weight: bold;
+}
+
+.project-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* Buttons */
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-secondary {
+  background: #ccc;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: #aaa;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 95%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-body {
+  margin: 15px 0;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.toast-success {
+  background: #28a745;
+  color: #fff;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.page-info {
+  font-size: 14px;
+  color: #333;
+}
+
+
+.btn-success {
+  background: #28a745;
+  color: #fff;
+  cursor: default;
+}
