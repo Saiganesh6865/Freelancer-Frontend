@@ -79,10 +79,10 @@ const Navbar = () => {
             <>
               <Link to="/manager" className="nav-link">Overview</Link>
               <Link to="/manager/projects" className="nav-link">Projects</Link>
-              <Link to="/manager/team" className="nav-link">Team</Link>
               <Link to="/manager/batches" className="nav-link">Batches</Link>
+              <Link to="/manager/team" className="nav-link">Tasks</Link>
               <Link to="/manager/requests" className="nav-link">Requests</Link>
-              <Link to="/manager/organization" className="nav-link">Organization</Link>
+              {/* <Link to="/manager/organization" className="nav-link">Organization</Link> */}
               <Link to="/manager/profile" className="nav-link">Profile</Link>
             </>
           )}
