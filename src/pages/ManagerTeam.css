@@ -1,0 +1,19 @@
+.manager-team-page {
+  max-width: 1550px;
+  margin: 0 fixed;
+  padding: 10px 20px;
+}
+
+.manager-team-page h2 {
+  margin-bottom: 20px;
+}
+
+.project-selector {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 10px;
+}
+
+.create-task-btn {
+  margin-bottom: 1rem;
+}
