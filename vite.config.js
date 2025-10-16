@@ -3,6 +3,10 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  // ✅ This makes sure your app loads assets correctly when deployed
+  base: './',
+
+  // ✅ Local dev proxy (Render ignores this section in production)
   server: {
     proxy: {
       '/api': {
@@ -15,4 +19,5 @@ export default defineConfig({
     }
   }
 })
+
 
