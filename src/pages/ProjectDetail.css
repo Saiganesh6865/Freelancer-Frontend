@@ -1,5 +1,5 @@
 /* ========= General Page Styling ========= */
-.admin-project-details-page {
+.project-detail-page {
   width: 100%;
   max-width: 1200px;
   margin: 30px auto;
@@ -16,7 +16,6 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
-  flex-wrap: wrap;
 }
 
 .project-header h2 {
@@ -58,13 +57,12 @@
   margin-bottom: 25px;
 }
 
-/* Info Items */
 .info-item {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 14px;
   background: #f9fafc;
-  padding: 14px 18px;
+  padding: 12px 16px;
   border-radius: 10px;
   border: 1px solid #e2e8f0;
   transition: 0.2s;
@@ -78,56 +76,13 @@
 .info-label {
   font-size: 0.9rem;
   color: #64748b;
+  margin-bottom: 2px;
 }
 
 .info-value {
   font-weight: 600;
   font-size: 1.05rem;
   color: #1e293b;
-}
-
-/* Dropdown + Assign Button */
-.info-item > div {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
-  max-width: 360px;
-}
-
-.info-item select {
-  flex: 1;
-  min-width: 160px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid #cbd5e1;
-  background-color: white;
-  font-size: 0.95rem;
-  color: #1e293b;
-}
-
-.info-item select:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-}
-
-.info-item button {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: none;
-  background-color: #22c55e;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  transition: all 0.2s;
-}
-
-.info-item button:hover {
-  background-color: #16a34a;
 }
 
 /* ========= Project Description ========= */
@@ -152,6 +107,107 @@
   font-size: 1rem;
 }
 
+/* ========= Batch Section ========= */
+.batch-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.batch-section h3 {
+  color: #0f172a;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ========= Batch Card ========= */
+.batch-card-full {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  background: #f8fafc;
+  transition: all 0.25s ease-in-out;
+  overflow: hidden;
+}
+
+.batch-card-full:hover {
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.12);
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+}
+
+.batch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #f1f5f9, #e2e8f0);
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.batch-header h4 {
+  color: #1e3a8a;
+  margin: 0;
+}
+
+.batch-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.batch-content {
+  padding: 18px 22px;
+  background: white;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ========= Subsections ========= */
+.batch-subsection {
+  margin-top: 15px;
+}
+
+.batch-subsection h5 {
+  color: #334155;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+}
+
+/* ========= Task & Member Cards ========= */
+.task-item,
+.member-item {
+  background: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+
+.task-item:hover,
+.member-item:hover {
+  background: #eef2ff;
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.task-item h5 {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.task-desc {
+  color: #475569;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
 /* ========= Status Badge ========= */
 .status-badge {
   display: inline-block;
@@ -164,50 +220,144 @@
   text-align: center;
 }
 
-.status-open { background-color: #8b5cf6; color: #fff; }
-.status-active { background-color: #22c55e; color: #fff; }
-.status-pending { background-color: #facc15; color: #000; }
-.status-completed { background-color: #3b82f6; color: #fff; }
-.status-closed { background-color: #6b7280; color: #fff; }
 
-/* ========= Buttons ========= */
-.btn {
-  display: inline-flex;
+/* ========= Animations ========= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========= Edit Form Styling ========= */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+  background: #f1f5f9;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+}
+
+.edit-form input,
+.edit-form textarea,
+.edit-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  color: #1e293b;
+  transition: all 0.2s ease-in-out;
+  background: white;
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus,
+.edit-form select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+.edit-controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.edit-btn,
+.save-btn,
+.cancel-btn {
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  font-size: 0.95rem;
-  padding: 8px 14px;
-  border-radius: 8px;
   border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
 }
 
-.btn-primary { background-color: #3b82f6; color: white; }
-.btn-primary:hover { background-color: #2563eb; }
-
-.btn-secondary { background-color: #e5e7eb; color: #1e293b; }
-.btn-secondary:hover { background-color: #d1d5db; }
-
-.btn-warning { background-color: #f59e0b; color: white; }
-.btn-warning:hover { background-color: #d97706; }
-
-.btn-danger { background-color: #ef4444; color: white; }
-.btn-danger:hover { background-color: #dc2626; }
-
-/* Form Inputs */
-.form-input, .form-textarea {
-  width: 100%;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
-  margin-bottom: 12px;
-  font-size: 0.95rem;
-  color: #1e293b;
+.edit-btn {
+  background: linear-gradient(90deg,#3b82f6,#2563eb);
+  color: white;
 }
 
-.form-input:focus, .form-textarea:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+.edit-btn:hover {
+  transform: translateY(-1px);
+}
+
+.save-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.save-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.cancel-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.cancel-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.upload-placeholder {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.upload-placeholder label {
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.upload-placeholder input[type="file"] {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px dashed #94a3b8;
+  cursor: not-allowed;
+  background: #f1f5f9;
+}
+
+.upload-note {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.bg-purple-100 {
+  background: #ede9fe; /* light purple background */
+  color: #5b21b6;       /* dark purple text */
+}
+
+
+.status-active { background-color: #22c55e; color: #fff; }
+.status-pending { background-color: #facc15; color: #000; }
+.status-completed { background-color: #3b82f6; color: #fff; }
+.status-closed { background-color: #6b7280; color: #fff; }
+.status-open { background-color: #8b5cf6; color: #fff; }
+
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* <-- space between status and edit button */
+  margin-top: 10px; /* optional extra spacing from task content */
 }
