@@ -1,0 +1,10 @@
+/* Chat page styles (extracted) */
+.chat-container { display: flex; flex-direction: column; height: 70vh; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); }
+.chat-messages { flex: 1; padding: 1rem; overflow-y: auto; background: #f8f9fa; }
+.message { margin-bottom: 1rem; padding: 0.75rem; border-radius: 10px; max-width: 70%; }
+.message.own { background: #1e3c72; color: white; margin-left: auto; }
+.message.other { background: white; border: 1px solid #e9ecef; }
+.message-header { font-size: 0.8rem; margin-bottom: 0.25rem; opacity: 0.7; }
+.chat-input { display: flex; padding: 1rem; background: white; border-top: 1px solid #e9ecef; }
+.chat-input input { flex: 1; padding: 0.75rem; border: 2px solid #e9ecef; border-radius: 8px; margin-right: 0.5rem; background: #f8f9fa; }
+.chat-input input:focus { outline: none; border-color: #1e3c72; background: white; }

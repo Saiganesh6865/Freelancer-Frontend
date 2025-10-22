@@ -1,0 +1,213 @@
+/* ========= General Page Styling ========= */
+.admin-project-details-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 25px 40px;
+  background: linear-gradient(145deg, #f8fafc, #eef2f7);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Header */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.project-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: 0.5px;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
+  transition: all 0.3s;
+}
+
+.back-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.35);
+}
+
+/* ========= Overview Section ========= */
+.overview-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+
+/* Info Items */
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #f9fafc;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  transition: 0.2s;
+}
+
+.info-item:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.info-value {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #1e293b;
+}
+
+/* Dropdown + Assign Button */
+.info-item > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  max-width: 360px;
+}
+
+.info-item select {
+  flex: 1;
+  min-width: 160px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background-color: white;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+.info-item select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.info-item button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background-color: #22c55e;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.info-item button:hover {
+  background-color: #16a34a;
+}
+
+/* ========= Project Description ========= */
+.project-description {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  line-height: 1.6;
+}
+
+.project-description h3 {
+  margin-bottom: 12px;
+  color: #1e40af;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.project-description p {
+  color: #334155;
+  font-size: 1rem;
+}
+
+/* ========= Status Badge ========= */
+.status-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  min-width: 70px;
+  text-align: center;
+}
+
+.status-open { background-color: #8b5cf6; color: #fff; }
+.status-active { background-color: #22c55e; color: #fff; }
+.status-pending { background-color: #facc15; color: #000; }
+.status-completed { background-color: #3b82f6; color: #fff; }
+.status-closed { background-color: #6b7280; color: #fff; }
+
+/* ========= Buttons ========= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary { background-color: #3b82f6; color: white; }
+.btn-primary:hover { background-color: #2563eb; }
+
+.btn-secondary { background-color: #e5e7eb; color: #1e293b; }
+.btn-secondary:hover { background-color: #d1d5db; }
+
+.btn-warning { background-color: #f59e0b; color: white; }
+.btn-warning:hover { background-color: #d97706; }
+
+.btn-danger { background-color: #ef4444; color: white; }
+.btn-danger:hover { background-color: #dc2626; }
+
+/* Form Inputs */
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
