@@ -1,0 +1,166 @@
+.freelancer-requests-wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.table-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.requests-table th,
+.requests-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.requests-table th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.requests-table tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.requests-table tr:hover {
+  background-color: #eef2f7;
+}
+
+/* Status badges */
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background-color: #fff7ed;
+  color: #d97706;
+}
+
+.status-approved {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.status-rejected {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pagination button:hover {
+  background: #f3f4f6;
+}
+
+.pagination button.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Toast notifications */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 250px;
+  max-width: 400px;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.toast-success { background-color: #16a34a; }
+.toast-error { background-color: #ef4444; }
+.toast-info { background-color: #3b82f6; }
+
+.toast-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+  margin-left: 12px;
+}
+
+.toast-close:hover { opacity: 1; }
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Empty & loading states */
+.empty-state, .loading {
+  text-align: center;
+  padding: 50px 20px;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .requests-table th, .requests-table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .badge { font-size: 0.7rem; padding: 3px 8px; }
+}
