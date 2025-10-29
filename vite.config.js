@@ -4,21 +4,20 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 
-  // ✅ Keeps asset paths relative
-  base: './',
+  // ✅ Use absolute path for Render (not relative)
+  base: '/',
 
-  // ✅ Explicit output directory
   build: {
     outDir: 'dist',
   },
 
-  // ✅ Proxy (used only in local dev, ignored by Render)
+  // ✅ Local dev proxy (ignored by Render)
   server: {
     proxy: {
       '/api': {
         target: 'https://freelancer-backend-65cp.onrender.com',
         changeOrigin: true,
-        secure: true, // ✅ must be true for HTTPS
+        secure: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
