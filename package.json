@@ -24,9 +24,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npx cpx public/_redirects dist/",
     "preview": "vite preview"
   }
 
 }
+
 
