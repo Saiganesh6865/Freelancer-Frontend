@@ -1,17 +1,30 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { copyFileSync, existsSync } from 'fs'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'copy-redirects',
+      closeBundle() {
+        // ✅ Copy _redirects file to dist after build
+        if (existsSync('public/_redirects')) {
+          copyFileSync('public/_redirects', 'dist/_redirects')
+          console.log('✅ _redirects copied successfully!')
+        } else {
+          console.warn('⚠️ No _redirects file found in /public')
+        }
+      },
+    },
+  ],
 
-  // ✅ Use absolute path for Render (not relative)
   base: '/',
 
   build: {
     outDir: 'dist',
   },
 
-  // ✅ Local dev proxy (ignored by Render)
   server: {
     proxy: {
       '/api': {
