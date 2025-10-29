@@ -3,21 +3,24 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  // ✅ This makes sure your app loads assets correctly when deployed
+
+  // ✅ Keeps asset paths relative
   base: './',
 
-  // ✅ Local dev proxy (Render ignores this section in production)
+  // ✅ Explicit output directory
+  build: {
+    outDir: 'dist',
+  },
+
+  // ✅ Proxy (used only in local dev, ignored by Render)
   server: {
     proxy: {
       '/api': {
-        // target: 'http://127.0.0.1:5000',  
-        target:'https://freelancer-backend-65cp.onrender.com',    // render server
+        target: 'https://freelancer-backend-65cp.onrender.com',
         changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/api/, '')  // /api/login => /login
-      }
-    }
-  }
+        secure: true, // ✅ must be true for HTTPS
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 })
-
-
