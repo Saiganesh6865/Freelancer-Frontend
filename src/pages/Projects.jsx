@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import api from '../services/api';
 import './Projects.css';
-
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 const Projects = () => {
   const { user } = useAuth();
@@ -17,7 +16,6 @@ const Projects = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 5;
 
-  // ✅ Fetch projects directly
   useEffect(() => {
     fetchProjects();
   }, []);
@@ -25,11 +23,7 @@ const Projects = () => {
   const fetchProjects = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${API_BASE_URL}/freelancer/batches`, {
-        method: "GET",
-        credentials: "include"
-      });
-      const data = await response.json();
+      const data = await api.getSuggestedBatches();
       setProjects(data || []);
     } catch (err) {
       console.error(err);
@@ -46,22 +40,14 @@ const Projects = () => {
     setTimeout(() => setShowToast(false), 3000);
   };
 
-  // ✅ Apply directly via API
   const handleConfirm = async () => {
     if (!selectedProject) return;
 
     try {
       setSubmitting(true);
-      const response = await fetch(`${API_BASE_URL}/freelancer/applications/batch`, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ batch_id: selectedProject.id })
-      });
+      const result = await api.applyToBatch(selectedProject.id);
 
-      const result = await response.json();
-
-      if (response.ok && !result.error) {
+      if (result && !result.error) {
         setProjects(prev =>
           prev.map(p =>
             p.id === selectedProject.id ? { ...p, already_applied: true } : p
