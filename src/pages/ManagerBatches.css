@@ -1,0 +1,262 @@
+:root {
+  --primary-blue: #4b5caa;
+  --light-blue: #cfd5ff;
+  --card-bg: #e5e7ff;
+  --border: #c7ceff;
+  --text-dark: #1e293b;
+}
+
+/* === MAIN CONTAINER === */
+.batches-container {
+  background: #dce3ff;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+/* === HEADER === */
+.batches-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.batches-header h2 {
+  color: var(--text-dark);
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* === TABLE WRAPPER === */
+.table-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  background: var(--light-blue);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* === ANT DESIGN TABLE === */
+.batches-table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* === STICKY HEADER === */
+.batches-table .ant-table-thead > tr > th {
+  background: linear-gradient(90deg, #4b5caa, #364fa3) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase;
+  border-bottom: 2px solid #dce3ff !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 5 !important;
+}
+
+/* === BODY ROWS === */
+.batches-table .ant-table-tbody > tr > td {
+  text-align: center !important;
+  vertical-align: middle !important;
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  padding: 12px 14px !important;
+  transition: all 0.2s ease;
+}
+
+/* === ALTERNATE ROWS & HOVER === */
+.batches-table .ant-table-tbody > tr:nth-child(even) > td {
+  background-color: #f8fafc !important;
+}
+
+.batches-table .ant-table-tbody > tr:hover > td {
+  background-color: #eef2ff !important;
+}
+
+/* === MEMBER TAGS === */
+.member-tag {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #1e3a8a;
+  padding: 4px 8px;
+  border-radius: 10px;
+  margin: 2px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* === STATUS BADGE === */
+.status-badge {
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 0.85rem;
+  display: inline-block;
+  text-align: center;
+  min-width: 90px;
+  border: 1px solid transparent;
+  background-color: #f1f5f9;
+  transition: all 0.2s ease;
+}
+
+/* 🟢 Active */
+.status-active {
+  background-color: #4ade80;
+  color: #fff;
+  border-color: #22c55e;
+}
+
+/* 🟡 Pending */
+.status-pending {
+  background-color: #facc15;
+  color: #000;
+}
+
+/* 🔴 Closed */
+.status-closed {
+  background-color: #ef4444;
+  color: #fff;
+}
+
+/* === PAGINATION BAR === */
+.ant-pagination {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 16px !important;
+}
+
+.ant-pagination-item {
+  border-radius: 6px !important;
+}
+
+.ant-pagination-item-active {
+  background: var(--primary-blue) !important;
+  border-color: var(--primary-blue) !important;
+}
+
+.ant-pagination-item-active a {
+  color: white !important;
+}
+
+/* === TRANSPARENT SCROLLBAR === */
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+  background: transparent;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(75, 92, 170, 0.25);
+  border-radius: 8px;
+}
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 92, 170, 0.45);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .batches-container {
+    padding: 24px;
+  }
+
+  .batches-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .table-wrapper {
+    max-width: 95%;
+    padding: 16px;
+  }
+
+  .batches-table .ant-table-thead > tr > th {
+    font-size: 0.88rem !important;
+  }
+
+  .batches-table .ant-table-tbody > tr > td {
+    font-size: 0.88rem;
+    padding: 10px 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .batches-container {
+    padding: 20px;
+  }
+
+  .batches-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .batches-header h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .table-wrapper {
+    padding: 12px;
+  }
+
+  .batches-table .ant-table {
+    min-width: 700px;
+  }
+
+  .batches-table .ant-table-thead > tr > th,
+  .batches-table .ant-table-tbody > tr > td {
+    font-size: 0.85rem !important;
+    padding: 8px 6px !important;
+  }
+
+  .status-badge {
+    font-size: 0.8rem;
+    min-width: 75px;
+  }
+}
+
+@media (max-width: 480px) {
+  .batches-container {
+    padding: 12px;
+  }
+
+  .table-wrapper {
+    padding: 8px;
+  }
+
+  .batches-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .batches-table .ant-table {
+    min-width: 600px;
+  }
+
+  .batches-table .ant-table-thead > tr > th,
+  .batches-table .ant-table-tbody > tr > td {
+    font-size: 0.78rem !important;
+    padding: 8px 5px !important;
+  }
+
+  .status-badge {
+    font-size: 0.75rem;
+    padding: 5px 8px;
+    min-width: 70px;
+  }
+}

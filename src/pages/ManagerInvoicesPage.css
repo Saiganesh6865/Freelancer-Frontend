@@ -1,0 +1,91 @@
+.invoices-container {
+  max-width: 95%;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Styling */
+.invoice-header {
+  background: linear-gradient(135deg, #b9c5de, #8c94a9);
+  color: white;
+  /* padding: 1.2rem 2rem; */
+  padding: 0.8rem 1.5rem; /* ↓ Reduced from 1.2rem 2rem */
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.invoice-header h2 {
+  /* font-size: 1.6rem; */
+  font-size: 1.4rem; /* ↓ Reduced font size */
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #e0e7ff;
+  margin-top: 0.3rem;
+}
+
+/* Card Wrapper */
+.invoice-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+/* Table Styles */
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoice-table th,
+.invoice-table td {
+  /* padding: 1rem; */
+  padding: 0.6rem 0.8rem; /* ↓ Reduced from 1rem */
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  /* font-size: 0.95rem; */
+   font-size: 0.9rem; /* ↓ Slightly smaller text */
+}
+
+.invoice-table th {
+  background-color: #f9fafb;
+  font-weight: 500;
+  color: #374151;
+}
+
+.invoice-table tr:hover {
+  background-color: #f1f5ff;
+  transition: 0.3s;
+}
+
+/* View Button */
+.view-btn {
+  background: linear-gradient(135deg, #b9c5de, #8c94a9);
+  color: #fff;
+  border: none;
+  /* padding: 0.5rem 1rem; */
+   padding: 0.35rem 0.8rem; /* ↓ Smaller button */
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-1px);
+}
+
+/* States */
+.invoice-loader,
+.no-invoices {
+  text-align: center;
+  margin-top: 2rem;
+  color: #374151;
+  font-size: 1rem;
+}
